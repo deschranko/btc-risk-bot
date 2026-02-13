@@ -1,8 +1,9 @@
 import requests
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+import os
+TOKEN = os.environ["BOT_TOKEN"]
 
-TOKEN = 8554022206:AAGQMVDqNC7QXEvnMnqpmQgPNB8EW_0pte4
 
 def get_price():
     url = "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
