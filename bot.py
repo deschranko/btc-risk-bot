@@ -1,8 +1,18 @@
-import requests
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
-import os
-TOKEN = os.environ["BOT_TOKEN"]
+
+TOKEN = "DEIN_TOKEN_BLEIBT_HIER_UNVERÄNDERT"
+
+
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("Bot läuft auf Render 🚀")
+
+
+app = ApplicationBuilder().token(TOKEN).build()
+
+app.add_handler(CommandHandler("start", start))
+
+app.run_polling()
 
 
 def get_price():
